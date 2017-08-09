@@ -9,6 +9,7 @@ void setup() {
    grid = new Grid(20, 20);
    algorithms.add(new BFS(grid, new Point((int)random(0, grid.gWidth), (int)random(0, grid.gHeight)), 
                                 new Point((int)random(0, grid.gWidth), (int)random(0, grid.gHeight)), 1));
+   AddObstacles((int)random(0, grid.gWidth * grid.gHeight - 2));
 }  
 
 void draw() {
@@ -63,6 +64,7 @@ void keyPressed() {
            a.targetPoint = tPoint;
            a.grid = grid;
            a.Restart();
+           AddObstacles((int)random(0, grid.gWidth * grid.gHeight - 2));
         }
       break;
       case 's':
@@ -71,5 +73,17 @@ void keyPressed() {
            algorithms.get(0).Step();
         }
       break;
+   }
+}
+
+void AddObstacles(int amount) {
+   int counter = 0;
+   while (counter < amount) {
+      Point point = new Point((int)random(0, grid.gWidth), (int)random(0, grid.gHeight));
+      while (grid.gridArray[point.y][point.x] == 2 || grid.gridArray[point.y][point.x] == 3) {
+         point = new Point((int)random(0, grid.gWidth), (int)random(0, grid.gHeight));   
+      }
+      grid.gridArray[point.y][point.x] = -1;
+      counter += 1;
    }
 }

@@ -18,15 +18,10 @@ class Grid {
             stroke(200);
             fill(18);
             switch (gridArray[i][j]) {
-               case 1:
-                 fill(0, 100, 0);
-               break;
-               case 2:
-                 fill(0, 0, 150);
-               break;
-               case 3:
-                 fill (150, 0, 0);
-               break;
+               case -1: fill(100, 100, 100); break;
+               case 1: fill(0, 100, 0); break;
+               case 2: fill(0, 0, 150); break;
+               case 3: fill (150, 0, 0); break;
             }
             rect(cWidth * j, cHeight * i, cWidth, cHeight);
          }
@@ -36,4 +31,5 @@ class Grid {
    void RefreshGrid() {
       gridArray = new int[gHeight][gWidth]; 
    }
+   
 }
