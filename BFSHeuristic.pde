@@ -2,7 +2,7 @@
 class BFSHeurisitc extends Algorithm { 
     
    int[][] bfsArray;
-   BFSEurisitc(Grid _grid, Point sPoint, Point tPoint, int _updateTime) {
+   BFSHeurisitc(Grid _grid, Point sPoint, Point tPoint, int _updateTime) {
       Init();
       grid = _grid;
       startPoint = sPoint;
